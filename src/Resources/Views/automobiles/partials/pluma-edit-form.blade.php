@@ -1,7 +1,6 @@
 @php $update_route = (config('automobile.resource_name') ?: 'automobiles').'.update'; @endphp
 @php $index_route = (config('automobile.resource_name') ?: 'automobiles').'.index'; @endphp
 
-<div id="automobileEditForm">
 {!! Form::model($model, ['method' => 'PUT', 'route' => [$update_route, $model->{$model->getRouteKeyName()}], 'class' => 'Formulario-Horizontal']) !!}
   <section>
     <div class="Fila {{ $errors->has('id') ? 'El--con-error' : '' }}">
@@ -55,4 +54,3 @@
     <a class="Btn Btn-Default" href="{{ route($index_route) }}"><i class="Icono Icono-Izquierda fa fa-arrow-left"></i>Volver</a>
   </section>
 {!! Form::close() !!}
-</div>

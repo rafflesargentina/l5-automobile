@@ -6,5 +6,7 @@
   <header class="Titulo-Pagina">
     <h1>{{ $model->id }} <small>{{ $title }}</small></h1>
   </header>
-  @include('automobile::automobiles.partials.pluma-edit-form')
+  <div id="automobileForm">
+    @include('automobile::automobiles.partials.pluma-edit-form')
+  </div>
 @endsection

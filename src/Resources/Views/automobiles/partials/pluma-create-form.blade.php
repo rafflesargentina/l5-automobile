@@ -1,7 +1,6 @@
 @php $store_route = (config('automobile.resource_source') ?: 'automobiles').'.store'; @endphp
 @php $index_route = (config('automobile.resource_source') ?: 'automobiles').'.index'; @endphp
 
-<div id="cityCreateForm">
 {!! Form::model($model = new \RafflesArgentina\Automobile\Models\Automobile, ['method' => 'POST', 'route' => $store_route, 'class' => 'Formulario-Horizontal']) !!}
   <section>
     <div class="Fila {{ $errors->has('id') ? 'El--con-error' : '' }}">
@@ -55,4 +54,3 @@
     <a class="Btn Btn-Default" href="{{ route($index_route) }}"><i class="Icono Icono-Izquierda fa fa-arrow-left"></i>Volver</a>
   </section>
 {!! Form::close() !!}
-</div>

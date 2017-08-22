@@ -6,5 +6,7 @@
   <header class="Titulo-Pagina">
     <h1>Automotor <small>{{ $title }}</small></h1>
   </header>
-  @include('automobile::automobiles.partials.pluma-create-form')
+  <div id="automobileForm">
+    @include('automobile::automobiles.partials.pluma-create-form')
+  </div>
 @endsection

@@ -8,6 +8,7 @@
 @include('automobile::partials.header')
 <div class="Wrapper-Main Alto-Completo">
   <main class="Main">
+    @include('automobile::partials.flash')
     <div class="Contenido-Main">
       @yield('content')
     </div>

@@ -1,0 +1,6 @@
+/vendor
+/skeleton
+error_log
+/tests
+phpunit.xml.dist
+composer.lock

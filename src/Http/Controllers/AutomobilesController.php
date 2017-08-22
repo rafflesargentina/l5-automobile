@@ -20,5 +20,7 @@ class AutomobilesController extends ResourceController
         $this->resourceName = config('automobile.resource_name') ?: 'automobiles';
 
         parent::__construct();
+
+        $this->middleware('auth')->except(['index','show']);
     }
 }

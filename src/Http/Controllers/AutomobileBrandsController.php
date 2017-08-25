@@ -3,6 +3,7 @@
 namespace RafflesArgentina\Automobile\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 use RafflesArgentina\ResourceController\ResourceController;
 
@@ -22,5 +23,22 @@ class AutomobileBrandsController extends ResourceController
         $this->resourceName = config('automobile.brand_resource_name') ?: 'automobile-brands';
 
         parent::__construct();
+    }
+
+    public function index(Request $request)
+    {
+        $validator = $this->validateRules();
+
+        if ($validator->fails()) {
+            return $this->redirectBackWithErrors($validator);
+        }
+
+        $items = $this->repository->filter()->sorter()->paginate();
+        $view = $this->getViewLocation(__FUNCTION__);
+        if (!View::exists($view)) {
+            return $this->redirectBackWithViewMissingMessage($view);
+        } else {
+            return response()->view($view, compact('items'), 200);
+        }
     }
 }

@@ -8,7 +8,17 @@ class AutomobileBrandSorters extends QuerySorters
 {
     protected static $defaultOrder = "asc";
 
-    protected static $defaultOrderByKey = "brand_id";
+    protected static $defaultOrderByKey = "brand";
+
+    public function brand()
+    {
+        return $this->builder->orderBy('brand', $this->order());
+    }
+
+    public function source()
+    {
+        return $this->builder->orderBy('source', $this->order());
+    }
 
     public function brand_id()
     {

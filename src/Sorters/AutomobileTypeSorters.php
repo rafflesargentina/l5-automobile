@@ -8,7 +8,12 @@ class AutomobileTypeSorters extends QuerySorters
 {
     protected static $defaultOrder = "asc";
 
-    protected static $defaultOrderByKey = "type_id";
+    protected static $defaultOrderByKey = "type";
+
+    public function type()
+    {
+        return $this->builder->orderBy('type', $this->order());
+    }
 
     public function type_id()
     {

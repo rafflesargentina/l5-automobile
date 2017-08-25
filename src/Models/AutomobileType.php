@@ -35,11 +35,11 @@ class AutomobileType extends Model
 
         $this->table = config('automobile.table_name') ?: 'automobiles';
 
-        $this->filters = config('automobile.filters') ?: AutomobileTypeFilters::class;
+        $this->filters = config('automobile.type_filters') ?: AutomobileTypeFilters::class;
 
         $this->perPage = config('automobile.per_page') ?: '25';
 
-        $this->sorters = config('automobile.sorters') ?: AutomobileTypeSorters::class;
+        $this->sorters = config('automobile.type_sorters') ?: AutomobileTypeSorters::class;
 
         $this->presenter = config('automobile.presenter') ?: AutomobilePresenter::class;
     }
@@ -58,8 +58,8 @@ class AutomobileType extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('type', function (Builder $builder) {
-            $builder->groupBy('type');
+        static::addGlobalScope('type_id', function (Builder $builder) {
+            $builder->groupBy('type_id');
         });
     }
 }

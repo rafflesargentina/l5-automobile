@@ -37,11 +37,11 @@ class AutomobileBrand extends Model
 
         $this->table = config('automobile.table_name') ?: 'automobiles';
 
-        $this->filters = config('automobile.filters') ?: AutomobileBrandFilters::class;
+        $this->filters = config('automobile.brand_filters') ?: AutomobileBrandFilters::class;
 
         $this->perPage = config('automobile.per_page') ?: '25';
 
-        $this->sorters = config('automobile.sorters') ?: AutomobileBrandSorters::class;
+        $this->sorters = config('automobile.brand_sorters') ?: AutomobileBrandSorters::class;
 
         $this->presenter = config('automobile.presenter') ?: AutomobilePresenter::class;
     }
@@ -62,8 +62,8 @@ class AutomobileBrand extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('brand', function (Builder $builder) {
-            $builder->groupBy('brand');
+        static::addGlobalScope('brand_id', function (Builder $builder) {
+            $builder->groupBy('brand_id');
         });
     }
 }

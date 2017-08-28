@@ -25,6 +25,8 @@ class AutomobileServiceProvider extends ServiceProvider
 
         $this->publishes([__DIR__.'/Resources/Views' => resource_path('views/vendor/automobile')], 'automobile');
 
+        $this->publishes([__DIR__.'/../assets/js/automobile.js' => public_path('js/automobile.js')], 'automobile');
+
         $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
 
         $this->loadViewsFrom(__DIR__.'/Resources/Views', 'automobile');

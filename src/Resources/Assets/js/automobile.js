@@ -8,7 +8,8 @@ window.select2 = select2;
 $(() => {
     let s2Source = $("#s2Source"),
         s2Type = $("#s2Type"),
-        s2Brand = $("#s2Brand");
+        s2Brand = $("#s2Brand"),
+        s2Model = $("#s2Model");
 
     if (s2Source) {
         s2Source.select2({

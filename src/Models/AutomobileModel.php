@@ -28,6 +28,8 @@ class AutomobileModel extends Model
 
     protected $presenter;
 
+    protected $primaryKey = 'model_id';
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -43,9 +45,11 @@ class AutomobileModel extends Model
         $this->presenter = config('automobile.presenter') ?: AutomobileModelPresenter::class;
     }
 
+    public $incrementing = false;
+
     public function getRouteKeyName()
     {
-        return 'id';
+        return 'model_id';
     }
 
     /**
@@ -57,8 +61,8 @@ class AutomobileModel extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('model', function (Builder $builder) {
-            $builder->groupBy('model');
+        static::addGlobalScope('model_id', function (Builder $builder) {
+            $builder->groupBy('model_id');
         });
     }
 }

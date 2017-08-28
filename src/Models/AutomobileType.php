@@ -29,6 +29,8 @@ class AutomobileType extends Model
 
     protected $presenter;
 
+    protected $primaryKey = 'type_id';
+
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
@@ -43,6 +45,8 @@ class AutomobileType extends Model
 
         $this->presenter = config('automobile.presenter') ?: AutomobilePresenter::class;
     }
+
+    public $incrementing = false;
 
     public function getRouteKeyName()
     {

@@ -14,7 +14,7 @@ class S2DropdownsController
 
     public function __construct(AutomobileRepository $repository)
     {
-        $this->repository = $repository;
+        $this->repository = config('automobile.repository') ?: AutomobileRepository::class;
     }
 
     public function __invoke(Request $request, $groupBy)

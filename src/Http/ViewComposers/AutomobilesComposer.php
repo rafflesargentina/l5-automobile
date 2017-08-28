@@ -8,7 +8,7 @@ use RafflesArgentina\Automobile\Repositories\AutomobileRepository;
 
 class AutomobilesComposer
 {
-    protected $automotible;
+    protected $automobile;
 
     public function __construct(AutomobileRepository $automobile)
     {
@@ -32,6 +32,8 @@ class AutomobilesComposer
 
     public function composeEdit(View $view)
     {
-        $view->with('sources', $this->Automobile->pluckSources());
+        $view->with('brands', $this->Automobile->findBy('id', request()->route('automobile'))->pluck('brand', 'brand'))
+             ->with('types', $this->Automobile->findBy('id', request()->route('automobile'))->pluck('type', 'type'))
+             ->with('sources', $this->Automobile->pluckSources());
     }
 }

@@ -10,9 +10,5 @@ class AutomobileModelRepository extends EloquentRepository
 {
     public $model = AutomobileModel::class;
 
-    protected $tag = [
-        'created'  => 'AutomobileModelCreated',
-        'updated'  => 'AutomobileModelUpdated',
-        'deleted'  => 'AutomobileModelDeleted',
-    ];
+    protected $tag = 'AutomobileModel';
 }

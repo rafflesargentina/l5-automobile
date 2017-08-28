@@ -24,23 +24,6 @@ class AutomobilesController extends ResourceController
 
         parent::__construct();
 
-        $this->middleware('auth')->except(['index','show']);
-    }
-
-    public function index(Request $request)
-    {
-        $validator = $this->validateRules();
-
-        if ($validator->fails()) {
-            return $this->redirectBackWithErrors($validator);
-        }
-
-        $items = $this->repository->filter()->sorter()->paginate();
-        $view = $this->getViewLocation(__FUNCTION__);
-        if (!View::exists($view)) {
-            return $this->redirectBackWithViewMissingMessage($view);
-        } else {
-            return response()->view($view, compact('items'), 200);
-        }
+        $this->middleware('auth');
     }
 }

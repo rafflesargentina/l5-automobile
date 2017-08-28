@@ -2,6 +2,8 @@
 
 namespace RafflesArgentina\Automobile\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use RafflesArgentina\ResourceController\ResourceController;
 
 use RafflesArgentina\Automobile\Http\Requests\AutomobileModelRequest;
@@ -20,5 +22,7 @@ class AutomobileModelsController extends ResourceController
         $this->resourceName = config('automobile.model_resource_name') ?: 'models';
 
         parent::__construct();
+
+        $this->middleware('auth');
     }
 }

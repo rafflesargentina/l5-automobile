@@ -4,3 +4,4 @@ error_log
 /tests
 phpunit.xml.dist
 composer.lock
+/node_modules

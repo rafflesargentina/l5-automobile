@@ -1,5 +1,5 @@
-@php $store_route = (config('automobile.resource_source') ?: 'automobiles').'.store'; @endphp
-@php $index_route = (config('automobile.resource_source') ?: 'automobiles').'.index'; @endphp
+@php $store_route = (config('automobile.resource_name') ?: 'automobiles').'.store'; @endphp
+@php $index_route = (config('automobile.resource_name') ?: 'automobiles').'.index'; @endphp
 
 {!! Form::model($model = new \RafflesArgentina\Automobile\Models\Automobile, ['method' => 'POST', 'route' => $store_route, 'class' => 'Formulario-Horizontal']) !!}
   <section>
@@ -15,7 +15,7 @@
     <div class="Fila {{ $errors->has('source') ? 'El--con-error' : '' }}">
       {!! Form::label('source', 'Origen *', ['class' => 'Grupo-Formulario Col-Tablet-2']) !!}
       <div class="Grupo-Formulario Col-Tablet-8">
-        {!! Form::text('source', null, ['placeholder' => 'Seleccioná una opción']) !!}
+        {!! Form::select('source', isset($sources) ? $sources : [], null, ['placeholder' => 'Seleccioná una opción', 'id' =>'s2Source']) !!}
         @if($errors->has('source'))
         <span class="Mensaje-Validacion">{{ $errors->first('source') }}</span>
         @endif
@@ -24,7 +24,7 @@
     <div class="Fila {{ $errors->has('brand') ? 'El--con-error' : '' }}">
       {!! Form::label('brand', 'Marca *', ['class' => 'Grupo-Formulario Col-Tablet-2']) !!}
       <div class="Grupo-Formulario Col-Tablet-8">
-        {!! Form::select('brand', isset($brands) ? $brands : [], null, ['placeholder' => 'Seleccioná una marca']) !!}
+        {!! Form::select('brand', isset($brands) ? $brands : [], null, ['placeholder' => 'Seleccioná una marca', 'id' => 's2Brand']) !!}
         @if($errors->has('brand'))
         <span class="Mensaje-Validacion">{{ $errors->first('brand') }}</span>
         @endif
@@ -33,7 +33,7 @@
     <div class="Fila {{ $errors->has('type') ? 'El--con-error' : '' }}">
       {!! Form::label('type', 'Tipo *', ['class' => 'Grupo-Formulario Col-Tablet-2']) !!}
       <div class="Grupo-Formulario Col-Tablet-8">
-        {!! Form::select('type', isset($types) ? $types : [], null, ['placeholder' => 'Seleccioná un tipo']) !!}
+        {!! Form::select('type', isset($types) ? $types : [], null, ['placeholder' => 'Seleccioná un tipo', 'id' => 's2Type']) !!}
         @if($errors->has('type'))
         <span class="Mensaje-Validacion">{{ $errors->first('type') }}</span>
         @endif

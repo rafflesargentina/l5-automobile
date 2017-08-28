@@ -1,5 +1,6 @@
 @php $layout = 'automobile::layouts.default'; @endphp
 @php $title = 'Listado'; @endphp
+@php $index_route = (config('automobile-types.resource_name') ?: 'automobile-types').'.index'; @endphp
 @extends($layout)
 @section('title', $title)
 @section('content')
@@ -7,6 +8,12 @@
     <h1>Tipos <small>{{ $title }}</small></h1>
   </header>
   <div class="Botonera-Superior-Derecha">
+    {!! Form::open(['method' => 'GET', 'route' => $index_route]) !!}
+      <div class="Grupo-Formulario">
+        {!! Form::text('term', null, ['placeholder' => 'Tipo o ident. de tipo', 'class' => 'Con-Icono-Izquierda']) !!}
+        <i class="Icono-Control-Izquierda fa fa-search"></i>
+      </div>
+    {!! Form::close() !!}
   </div>
   @include('automobile::automobile-types.partials.pluma-index-table')
   <div class="Botonera-Inferior-Derecha">

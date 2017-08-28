@@ -3,9 +3,6 @@
     <thead>
       <tr>
         <th>Identificación</th>
-        <th>Origen</th>
-        <th>Fábrica</th>
-        <th>Tipo de fábrica</th>
         <th>Nombre</th>
         <th>Acciones</th>
       </tr>
@@ -14,9 +11,6 @@
       @foreach($items as $item)
       <tr>
         <td>{{ $item->present()->type_id }}</td>
-        <td>{{ $item->present()->source }}</td>
-        <td>{{ $item->present()->factory }}</td>
-        <td>{{ $item->present()->factory_type }}</td>
         <td>{{ $item->present()->type }}</td>
         <td>
         </td>

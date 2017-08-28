@@ -46,7 +46,7 @@ $(() => {
         s2Brand.select2({
             placeholder: 'Seleccioná una marca',
             ajax: {
-                url: '/automobiles/dropdown/brand?source=' + s2Source.val() || '',
+                url: '/automobiles/dropdown/brand?source=' + (s2Source.val() || ''),
                 data: (params) => {
                     return {
                         term: params.term || '',
@@ -81,7 +81,7 @@ $(() => {
         s2Type.select2({
             placeholder: 'Seleccioná un tipo',
             ajax: {
-                url: '/automobiles/dropdown/type?source=' + (s2Source.val() || '') + '&brand= ' + s2Brand.val(),
+                url: '/automobiles/dropdown/type?source=' + (s2Source.val() || '') + '&brand= ' + (s2Brand.val() || ''),
                 data: (params) => {
                     return {
                         term: params.term || '',

@@ -16,6 +16,11 @@ class AutomobileBrandFilters extends QueryFilters
         return $this->builder->where('brand', $query);
     }
 
+    public function source($query)
+    {
+        return $this->builder->where('source', $query);
+    }
+
     public function brand_id($query)
     {
         return $this->builder->where('brand_id', $query);

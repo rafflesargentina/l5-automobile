@@ -16,6 +16,11 @@ class AutomobileTypeFilters extends QueryFilters
         return $this->builder->where('type', $query);
     }
 
+    public function brand($query)
+    {
+        return $this->builder->where('brand', $query);
+    }
+
     public function type_id($query)
     {
         return $this->builder->where('type_id', $query);

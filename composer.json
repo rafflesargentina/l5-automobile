@@ -16,7 +16,6 @@
     ],
     "require": {
         "php" : ">=5.6.4",
-        "laravel/laravel": "5.4.*",
         "laracasts/presenter": "^0.2.1",
         "caffeinated/repository": "^3.1",
         "laravelcollective/html": "^5.4",
@@ -25,6 +24,7 @@
         "rafflesargentina/l5-action-based-form-request": "^1.0"
     },
     "require-dev": {
+        "laravel/laravel": "^5.4",
         "phpunit/phpunit" : "4.*",
         "phpspec/phpspec": "^3.4",
         "squizlabs/php_codesniffer": "3.*",

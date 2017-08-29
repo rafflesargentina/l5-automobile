@@ -24,6 +24,6 @@ class AutomobilesController extends ResourceController
 
         parent::__construct();
 
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['index', 'show']);
     }
 }

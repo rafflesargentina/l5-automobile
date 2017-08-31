@@ -1,7 +1,7 @@
 @php $layout = 'automobile::layouts.default'; @endphp
 @php $title = 'Precios vigentes'; @endphp
 @php $index_route = (config('automobile.resource_name') ?: 'automobiles').'.index'; @endphp
-@php $module = config('automobile.module') ?: 'automobile'); @endphp
+@php $module = config('automobile.module') ?: 'automobile'; @endphp
 @extends($layout)
 @section('title', $title)
 @section('content')

@@ -1,7 +1,7 @@
 @php $layout = 'automobile::layouts.default'; @endphp
 @php $title = 'Listado'; @endphp
 @php $index_route = (config('automobile-types.resource_name') ?: 'automobile-types').'.index'; @endphp
-@php $module = config('automobile.module') ?: 'automobile'); @endphp
+@php $module = config('automobile.module') ?: 'automobile'; @endphp
 @extends($layout)
 @section('title', $title)
 @section('content')

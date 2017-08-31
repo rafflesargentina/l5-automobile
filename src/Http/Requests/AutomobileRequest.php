@@ -27,9 +27,9 @@ class AutomobileRequest extends ActionBasedFormRequest
     {
         return [
             'id' => 'required|alpha_num|min:7|max:8',
-            'type' => 'required|min:3|max:50',
-            'brand' => 'required|min:3|max:50',
-            'model' => 'required|min:3|max:50',
+            'type' => 'required|max:50',
+            'brand' => 'required|max:50',
+            'model' => 'required|max:50',
             'y1992' => 'nullable|numeric',
             'y1993' => 'nullable|numeric',
             'y1994' => 'nullable|numeric',
@@ -56,10 +56,11 @@ class AutomobileRequest extends ActionBasedFormRequest
             'y2015' => 'nullable|numeric',
             'y2016' => 'nullable|numeric',
             'y2017' => 'nullable|numeric',
-            'source' => 'required|min:3|max:25',
-            'type_id' => 'required|numeric|digits:2',
-            'brand_id' => 'required|alpha_num|min:2|max:3',
-            'factory_id' => 'nullable|numeric|digits:3',
+            'source' => 'required|max:25',
+            'type_id' => 'sometimes|numeric|digits:2',
+            'brand_id' => 'sometiems|alpha_num|min:2|max:3',
+            'factory_id' => 'sometimes|nullable|numeric|digits:3',
+            'factory_type_id' => 'sometiems|nullable|alpha',
         ];
     }
 

@@ -12,7 +12,7 @@ class AutomobileRepository extends EloquentRepository
 
     protected $tag = ['Automobile'];
 
-    public function pluckYears($id = null)
+    public function pluckYears()
     {
         $years = [];
         for ($i = \Carbon\Carbon::today()->format('Y'); $i > '1991'; $i--)

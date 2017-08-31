@@ -3,6 +3,7 @@
 namespace RafflesArgentina\Automobile\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 use Laracasts\Presenter\PresentableTrait;
 

@@ -1,3 +1,4 @@
+@if($appliedFilters || $appliedSorters)
 <ul class="Lista-Inline">
   <li><span class="Texto-Secundario">Ordenados por: </span>
   @foreach($appliedSorters as $k => $v)
@@ -10,3 +11,4 @@
   @endforeach
   </li>
 </ul>
+@endif

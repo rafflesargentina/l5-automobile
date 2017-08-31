@@ -15,8 +15,23 @@ class AutomobileSorters extends QuerySorters
         return $this->builder->orderBy('id', $this->order());
     }
 
+    public function type()
+    {
+        return $this->builder->orderBy('type', $this->order());
+    }
+
     public function brand()
     {
         return $this->builder->orderBy('brand', $this->order());
+    }
+
+    public function model()
+    {
+        return $this->builder->orderBy('model', $this->order());
+    }
+
+    public function source()
+    {
+        return $this->builder->orderBy('source', $this->order());
     }
 }

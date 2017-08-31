@@ -1,6 +1,7 @@
+@php $module = config('automobile.module') ?: 'automobile'); @endphp
 <html>
 <head>
-@include('automobile::partials.meta')
+@include(mModule.'::partials.meta')
 <title>{{ env('APP_NAME') ?: 'Automobile' }} - @yield('title')</title>
 {!! Html::style('http://pluma.rafflesargentina.com/css/pluma.min.css') !!}
 {!! Html::style('http://pluma-select2.rafflesargentina.com/css/pluma-select2.min.css') !!}
@@ -8,17 +9,17 @@
 <script src="{{ asset('/js/automobile.js') }}"></script>
 </head>
 <body class="Con-Header-Compacto-Fixed">
-@include('automobile::partials.header')
+@include($module.'::partials.header')
 @yield('sidebar')
 <div class="Wrapper-Main Alto-Completo">
   <main class="Main Main-Con-Sidebar Apretable">
-    @include('automobile::partials.flash')
-    @include('automobile::partials.breadcrum')
+    @include($module.'::partials.flash')
+    @include($module.'::partials.breadcrum')
     <div class="Contenido-Main">
       @yield('content')
     </div>
   </main>
 </div>
-@include('automobile::partials.footer')
+@include($module.'::partials.footer')
 </body>
 </html>

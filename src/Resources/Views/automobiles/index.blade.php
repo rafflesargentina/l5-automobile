@@ -1,15 +1,16 @@
 @php $layout = 'automobile::layouts.default'; @endphp
 @php $title = 'Listado'; @endphp
 @php $index_route = (config('automobile.resource_name') ?: 'automobiles').'.index'; @endphp
+@php $module = config('automobile.module') ?: 'automobile'); @endphp
 @extends($layout)
 @section('title', $title)
 @section('sidebar')
-  @include('automobile::automobiles.partials.pluma-sidebar')
+  @include($module.'::automobiles.partials.pluma-sidebar')
 @endsection
 @section('content')
   <header class="Titulo-Pagina">
     <h1>Automotores <small>{{ $title }}</small></h1>
-    @include('automobile::partials.applied-filters-and-sorters')
+    @include($module.'::partials.applied-filters-and-sorters')
   </header>
   <div class="Botonera-Superior-Derecha">
     <a class="Btn Btn-Redondo Btn-Primario" href="{{ route((config('automobile.resource_name') ?: 'automobiles').'.create') }}">
@@ -23,7 +24,7 @@
       </div>
     {!! Form::close() !!}
   </div>
-  @include('automobile::automobiles.partials.pluma-index-table')
+  @include($module.'::automobiles.partials.pluma-index-table')
   <div class="Botonera-Inferior-Derecha">
     <a class="Btn Btn-Primario" href="{{ route((config('automobile.resource_name') ?: 'automobiles').'.create') }}"><i class="Icono Icono-Izquierda fa fa-plus"></i>Nuevo Automotor</a>
   </div>

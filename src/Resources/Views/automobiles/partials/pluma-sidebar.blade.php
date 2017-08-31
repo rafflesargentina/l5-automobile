@@ -1,4 +1,4 @@
-@php $index_route = (config('automobile.rebrand_name') ?: 'automobiles').'.index'; @endphp
+@php $index_route = (config('automobile.resource_name') ?: 'automobiles').'.index'; @endphp
 
 <aside id="sidebarFilters" class="Sidebar Sidebar-Default Sidebar-Empujona Absolute">
   {!! Form::open(['class' => 'Formulario-Filtros', 'method' => 'GET', 'route' => $index_route]) !!}

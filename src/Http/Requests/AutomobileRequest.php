@@ -17,6 +17,7 @@ class AutomobileRequest extends ActionBasedFormRequest
             'show' => 'numeric|min:1|max:400',
             'order' => 'in:asc,desc',
             'orderBy' => Rule::in(array_keys(AutomobileSorters::listOrderByKeys())),
+            'source' => 'max:25',
             'brand' => 'max:50',
             'type' => 'max:50',
             'model' => 'max:50',
@@ -58,9 +59,10 @@ class AutomobileRequest extends ActionBasedFormRequest
             'y2017' => 'nullable|numeric',
             'source' => 'required|max:25',
             'type_id' => 'sometimes|numeric|digits:2',
-            'brand_id' => 'sometiems|alpha_num|min:2|max:3',
-            'factory_id' => 'sometimes|nullable|numeric|digits:3',
-            'factory_type_id' => 'sometiems|nullable|alpha',
+            'brand_id' => 'sometimes|alpha_num|min:2|max:3',
+            'model_id' => 'sometimes|alpha_num|min:2|max:3',
+            'factory_id' => 'sometimes|numeric|digits:3',
+            'factory_type_id' => 'sometimes|alpha',
         ];
     }
 

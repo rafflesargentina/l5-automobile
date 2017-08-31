@@ -32,6 +32,17 @@ class AutomobileRepository extends EloquentRepository
         return $sources;
     }
 
+    public function pluckFactoryTypeIds()
+    {
+        $types = collect([
+            'A' => 'Autos, camiones, camionetas, chasis, cuatricilos, todo terreno, tractores, transporte de pasajeros, utilitarios',
+            'C' => 'Camiones, chasis, tractores, transportes de pasajeros, utilitarios',
+            'M' => 'Motos, ciclomotores, cuatriciclos',
+            'Q' => 'Cuatriciclos, camiones, ciclomotores, todo terreno, tractores',
+        ]);
+        return $types;
+    }
+
     public function s2Dropdown($groupBy, string $pageName = null, $perPage = 25)
     {
         $columns = [$groupBy.' as id', $groupBy.' as text'];

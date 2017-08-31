@@ -8,8 +8,7 @@
       <tr>
         <th>#</th>
         <th>Origen</th>
-        <th>Fábrica</th>
-        <th>Tipo de fábrica</th>
+        <th>Id. tipo fábrica</th>
         <th>Marca</th>
         <th>Tipo</th>
         <th>Modelo</th>
@@ -21,8 +20,7 @@
       <tr>
         <td>{{ $item->present()->id }}</td>
         <td>{{ $item->present()->source }}</td>
-        <td>{{ $item->present()->factory }}</td>
-        <td>{{ $item->present()->factory_type }}</td>
+        <td>{{ $item->present()->factory_type_id }}</td>
         <td>{{ $item->present()->brand }}</td>
         <td>{{ $item->present()->type }}</td>
         <td>{{ $item->present()->model }}</td>
@@ -44,5 +42,5 @@
 </section>
 <div class="Wrapper-Paginacion">
   <span class="Cuenta-Resultados"><i class="Icono Icono-Izquierda fa fa-search"></i>Viendo {{ $items->count() }} de {{ $items->total() }} resultados.</span>
-  {!! $items->render() !!}
+  {!! $items->appends($appliedFiltersAndSorters)->render() !!}
 </div>

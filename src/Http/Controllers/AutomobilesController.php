@@ -26,4 +26,32 @@ class AutomobilesController extends ResourceController
 
         $this->middleware('auth')->except(['index', 'show']);
     }
+
+    public function index(Request $request)
+    {
+        $validator = $this->validateRules();
+
+        if ($validator->fails()) {
+            return $this->redirectBackWithErrors($validator);
+        }
+
+        $items = $this->repository->filter()->sorter()->paginate();
+
+        if ($request->wantsJson()) {
+            return response()->json($items->toJson(), 200, [], JSON_PRETTY_PRINT);
+        } else {
+            $view = $this->getViewLocation(__FUNCTION__);
+            if (!View::exists($view)) {
+                return $this->redirectBackWithViewMissingMessage($view);
+            } else {
+                $types = $items->where('type', $request->type ?: $request->old('type'));
+                $types = $types ? $types->pluck('type', 'type') : [];
+                $brands = $items->where('brand', $request->brand ?: $request->old('brand'));
+                $brands = $brands ? $brands->pluck('brand', 'brand') : [];
+                $models = $items->where('model', $request->model ?: $request->old('model'));
+                $models = $models ? $models->pluck('model', 'model') : [];
+                return response()->view($view, compact('items', 'types', 'brands', 'models'), 200);
+            }
+        }
+    }
 }

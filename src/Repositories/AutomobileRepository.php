@@ -10,14 +10,26 @@ class AutomobileRepository extends EloquentRepository
 {
     public $model = Automobile::class;
 
-    protected $tag = 'Automobile';
+    protected $tag = ['Automobile'];
+
+    public function pluckYears($id = null)
+    {
+        $years = [];
+        for ($i = \Carbon\Carbon::today()->format('Y'); $i > '1991'; $i--)
+        {
+            $years[$i] = $i;
+        }
+        $years = collect($years);
+        return $years;
+    }
 
     public function pluckSources()
     {
-        return [
+        $sources = collect([
             'I' => 'Importado',
             'N' => 'Nacional',
-        ]; 
+        ]); 
+        return $sources;
     }
 
     public function s2Dropdown($groupBy, string $pageName = null, $perPage = 25)

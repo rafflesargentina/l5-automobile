@@ -26,4 +26,26 @@ class AutomobileBrandsController extends ResourceController
 
         $this->middleware('auth');
     }
+
+    public function index(Request $request)
+    {
+        $validator = $this->validateRules();
+
+        if ($validator->fails()) {
+            return $this->redirectBackWithErrors($validator);
+        }
+
+        $items = $this->repository->filter()->sorter()->paginate();
+
+        if ($request->wantsJson()) {
+            return response()->json($items->toJson(), 200, [], JSON_PRETTY_PRINT);
+        } else {
+            $view = $this->getViewLocation(__FUNCTION__);
+            if (!View::exists($view)) {
+                return $this->redirectBackWithViewMissingMessage($view);
+            } else {
+                return response()->view($view, compact('items'), 200);
+            }
+        }
+    }
 }

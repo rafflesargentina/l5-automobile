@@ -82,7 +82,7 @@
             {!! Form::submit('Aplicar filtros', ['class' => 'Btn-Primario Btn-Bloque']) !!}
           </div>
           <div class="Grupo-Formulario Col-Tablet-6">
-            <a class="Btn Btn-Default" href="{{ route($index_route) }}">Quitar Filtros</a>
+            <a class="Btn Btn-Default Btn-Bloque" href="{{ route($index_route) }}">Quitar Filtros</a>
           </div>
       </div>
     </section>

@@ -46,5 +46,17 @@ class AutomobileServiceProvider extends ServiceProvider
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(ExceptionServiceProvider::class);
         $this->app->register(ViewComposerServiceProvider::class);
+
+        $this->app->singleton('JavaScript', function ($app) {
+            $view = config('automobile.bind_js_vars_to_this_view');
+            $namespace = config('automobile.js_namespace');
+
+            $binder = new \Laracasts\Utilities\JavaScript\LaravelViewBinder($app['events'], $view);
+
+            return new \Laracasts\Utilities\JavaScript\PHPToJavaScriptTransformer($binder, $namespace);
+        });
+
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Javascript', \Laracasts\Utilities\JavaScript\JavaScriptFacade::class);
     }
 }

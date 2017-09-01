@@ -6,7 +6,6 @@
 {!! Html::style('http://pluma.rafflesargentina.com/css/pluma.min.css') !!}
 {!! Html::style('http://pluma-select2.rafflesargentina.com/css/pluma-select2.min.css') !!}
 {!! Html::script('http://pluma.rafflesargentina.com/js/pluma.min.js') !!}
-<script src="{{ asset('/js/automobile.js') }}"></script>
 </head>
 <body class="Con-Header-Compacto-Fixed">
 @include($module.'::partials.header')

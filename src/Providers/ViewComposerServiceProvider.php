@@ -4,6 +4,8 @@ namespace RafflesArgentina\Automobile\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Javascript;
+
 class ViewComposerServiceProvider extends ServiceProvider
 {
     /**
@@ -15,6 +17,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         $module = config('automobile.module') ?: 'automobile';
         $resourceName = config('automobile.resource_name') ?: 'automobiles';
+
         view()->composer($module.'::partials.header', 'RafflesArgentina\Automobile\Http\ViewComposers\LayoutPartialsComposer@composeHeader');
         view()->composer('vendor.automobile.partials.header', 'RafflesArgentina\Automobile\Http\ViewComposers\LayoutPartialsComposer@composeHeader');
 
@@ -26,5 +29,9 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         view()->composer($module.'::'.$resourceName.'.partials.pluma-edit-form', 'RafflesArgentina\Automobile\Http\ViewComposers\AutomobilesComposer@composeEdit');
         view()->composer('vendor.automobile.automobiles.partials.pluma-edite-form', 'RafflesArgentina\Automobile\Http\ViewComposers\AutomobilesComposer@composeEdit');
+
+        Javascript::put([
+            'resourceName' => $resourceName,
+        ]);
     }
 }

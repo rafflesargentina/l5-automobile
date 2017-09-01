@@ -10330,6 +10330,8 @@ return jQuery;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var jQuery = __webpack_require__(0),
     select2 = __webpack_require__(2);
 
@@ -10337,7 +10339,12 @@ window.jQuery = jQuery;
 window.$ = window.jQuery;
 window.select2 = select2;
 
+if (_typeof(window.resourceName) === undefined) {
+    window.resourceName = 'automobiles';
+}
+
 $(function () {
+    var resourceName = window.resourceName;
 
     //$.fn.select2.defaults.set("ajax--delay", 50);
     //$.fn.select2.defaults.set("ajax--cache", false);
@@ -10387,7 +10394,7 @@ $(function () {
                 s2Brand.val("").trigger("change").select2({
                     placeholder: 'Marca',
                     ajax: {
-                        url: '/automobiles/dropdown/brand?source=' + e.params.data.id
+                        url: resourceName + '/dropdown/brand?source=' + e.params.data.id
                     }
                 });
             }
@@ -10395,7 +10402,7 @@ $(function () {
                 s2Type.val("").trigger("change").select2({
                     placeholder: 'Tipo',
                     ajax: {
-                        url: '/automobiles/dropdown/type?source=' + e.params.data.id
+                        url: resourceName + '/dropdown/type?source=' + e.params.data.id
                     }
                 });
             }
@@ -10403,7 +10410,7 @@ $(function () {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/automobiles/dropdown/model?source=' + e.params.data.id
+                        url: resourceName + '/dropdown/model?source=' + e.params.data.id
                     }
                 });
             }
@@ -10418,7 +10425,7 @@ $(function () {
                 s2Brand.val("").trigger("change").select2({
                     placeholder: 'Marca',
                     ajax: {
-                        url: '/automobiles/dropdown/brand?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id
+                        url: resourceName + '/dropdown/brand?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id
                     }
                 });
             }
@@ -10426,7 +10433,7 @@ $(function () {
                 s2Type.val("").trigger("change").select2({
                     placeholder: 'Tipo',
                     ajax: {
-                        url: '/automobiles/dropdown/type?source=' + (s2Brand.val() || '') + '&factory_type_id=' + e.params.data.id
+                        url: resourceName + '/dropdown/type?source=' + (s2Brand.val() || '') + '&factory_type_id=' + e.params.data.id
                     }
                 });
             }
@@ -10434,7 +10441,7 @@ $(function () {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/automobiles/dropdown/model?source=' + (s2Brand.val() || '') + '&factory_type_id=' + e.params.data.id
+                        url: resourceName + '/dropdown/model?source=' + (s2Brand.val() || '') + '&factory_type_id=' + e.params.data.id
                     }
                 });
             }
@@ -10445,7 +10452,7 @@ $(function () {
         s2Brand.select2({
             placeholder: 'Marca',
             ajax: {
-                url: '/automobiles/dropdown/brand?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || ''),
+                url: resourceName + '/dropdown/brand?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || ''),
                 data: function data(params) {
                     return {
                         term: params.term || '',
@@ -10458,7 +10465,7 @@ $(function () {
                 s2Type.val("").trigger("change").select2({
                     placeholder: 'Tipo',
                     ajax: {
-                        url: '/automobiles/dropdown/type?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand=' + e.params.data.id
+                        url: resourceName + '/dropdown/type?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand=' + e.params.data.id
                     }
                 });
             }
@@ -10466,7 +10473,7 @@ $(function () {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/automobiles/dropdown/model?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand=' + e.params.data.id
+                        url: resourceName + '/dropdown/model?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand=' + e.params.data.id
                     }
                 });
             }
@@ -10477,7 +10484,7 @@ $(function () {
         s2Type.select2({
             placeholder: 'Tipo',
             ajax: {
-                url: '/automobiles/dropdown/type?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand= ' + (s2Brand.val() || ''),
+                url: resourceName + '/dropdown/type?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand= ' + (s2Brand.val() || ''),
                 data: function data(params) {
                     return {
                         term: params.term || '',
@@ -10490,7 +10497,7 @@ $(function () {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/automobiles/dropdown/model?source=' + (s2FactoryTypeId.val() || '') + '&brand=' + (s2Brand.val() || '') + '&type=' + e.params.data.id
+                        url: resourceName + '/dropdown/model?source=' + (s2FactoryTypeId.val() || '') + '&brand=' + (s2Brand.val() || '') + '&type=' + e.params.data.id
                     }
                 });
             }
@@ -10501,7 +10508,7 @@ $(function () {
         s2Model.select2({
             placeholder: 'Modelo',
             ajax: {
-                url: '/automobiles/dropdown/model?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand= ' + (s2Brand.val() || '') + '&type=' + (s2Type.val() || ''),
+                url: resourceName + '/dropdown/model?source=' + (s2FactoryTypeId.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val() || '') + '&brand= ' + (s2Brand.val() || '') + '&type=' + (s2Type.val() || ''),
                 data: function data(params) {
                     return {
                         term: params.term || '',

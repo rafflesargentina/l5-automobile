@@ -14,6 +14,8 @@ class AutomobileBrandsController extends ResourceController
 {
     public function __construct()
     {
+        $this->alias = config('automobile.alias');
+
         $this->module = config('automobile.module');
 
         $this->repository = config('automobile.brand_repository') ?: AutomobileBrandRepository::class;

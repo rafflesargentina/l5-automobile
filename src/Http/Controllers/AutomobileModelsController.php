@@ -13,6 +13,8 @@ class AutomobileModelsController extends ResourceController
 {
     public function __construct()
     {
+        $this->alias = config('automobile.alias');
+
         $this->module = config('automobile.module');
 
         $this->repository = config('automobile.model_repository') ?: AutomobileModelRepository::class;

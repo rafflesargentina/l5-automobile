@@ -38,9 +38,9 @@ class AutomobilesComposer
 
     public function composeCreate(View $view)
     {
-        $types = $this->Automobile->findBy('type', request()->get('type') ?: old('type'));
+        $types = $this->Automobile->findWhere(['type', request()->get('type') ?: old('type')]);
         $types = $types ? $types->pluck('type', 'type') : [];
-        $brands = $this->Automobile->findBy('brand', request()->get('brand') ?: old('brand'));
+        $brands = $this->Automobile->findWhere(['brand', request()->get('brand') ?: old('brand')]);
         $brands = $brands ? $brands->pluck('brand', 'brand') : [];
         $view->with('years', $this->Automobile->pluckYears())
              ->with('types', $types)
@@ -56,7 +56,7 @@ class AutomobilesComposer
 
     public function composeEdit(View $view)
     {
-        $automobile = $this->Automobile->findBy('id', request()->route('automobile'));
+        $automobile = $this->Automobile->findWhere(['id' => request()->route('automobile')]);
         $types = $automobile ? $automobile->pluck('type', 'type') : [];
         $brands = $automobile ? $automobile->pluck('brand', 'brand') : [];
         $view->with('years', $this->Automobile->pluckYears())

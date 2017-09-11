@@ -57,7 +57,7 @@ $(() => {
                 s2Brand.val("").trigger("change").select2({
                     placeholder: 'Marca',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/brand?source=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/brand?source=' + e.params.data.id,
                     }
                 })
             }
@@ -65,7 +65,7 @@ $(() => {
                 s2Type.val("").trigger("change").select2({
                     placeholder: 'Tipo',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/type?source=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/type?source=' + e.params.data.id,
                     }
                 })
             }
@@ -73,7 +73,7 @@ $(() => {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/model?source=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/model?source=' + e.params.data.id,
                     }
                 })
             }
@@ -88,7 +88,7 @@ $(() => {
                 s2Brand.val("").trigger("change").select2({
                     placeholder: 'Marca',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/brand?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/brand?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id,
                     }
                 })
             }
@@ -96,7 +96,7 @@ $(() => {
                 s2Type.val("").trigger("change").select2({
                     placeholder: 'Tipo',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/type?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/type?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id,
                     }
                 })
             }
@@ -104,7 +104,7 @@ $(() => {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&factory_type_id=' + e.params.data.id,
                     }
                 })
             }
@@ -115,7 +115,7 @@ $(() => {
         s2Brand.select2({
             placeholder: 'Marca',
             ajax: {
-                url: '/' + resourceName + '/dropdown/brand?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || ''),
+                url: '/' + prefix + resourceName + '/dropdown/brand?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || ''),
                 data: (params) => {
                     return {
                         term: params.term || '',
@@ -128,7 +128,7 @@ $(() => {
                 s2Type.val("").trigger("change").select2({
                     placeholder: 'Tipo',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/type?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/type?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand=' + e.params.data.id,
                     }
                 })
             }
@@ -136,7 +136,7 @@ $(() => {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand=' + e.params.data.id,
                     }
                 })
             }
@@ -147,7 +147,7 @@ $(() => {
         s2Type.select2({
             placeholder: 'Tipo',
             ajax: {
-                url: '/' + resourceName + '/dropdown/type?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand= ' + (s2Brand.val() || ''),
+                url: '/' + prefix + resourceName + '/dropdown/type?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand= ' + (s2Brand.val() || ''),
                 data: (params) => {
                     return {
                         term: params.term || '',
@@ -160,7 +160,7 @@ $(() => {
                 s2Model.val("").trigger("change").select2({
                     placeholder: 'Modelo',
                     ajax: {
-                        url: '/' + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&brand=' + (s2Brand.val() || '') + '&type=' + e.params.data.id,
+                        url: '/' + prefix + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&brand=' + (s2Brand.val() || '') + '&type=' + e.params.data.id,
                     }
                 })
             }
@@ -171,7 +171,7 @@ $(() => {
         s2Model.select2({
             placeholder: 'Modelo',
             ajax: {
-                url: '/' + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand= ' + (s2Brand.val() || '') + '&type=' + (s2Type.val() || ''),
+                url: '/' + prefix + resourceName + '/dropdown/model?source=' + (s2Source.val() || '') + '&factory_type_id=' + (s2FactoryTypeId.val()  || '') + '&brand= ' + (s2Brand.val() || '') + '&type=' + (s2Type.val() || ''),
                 data: (params) => {
                     return {
                         term: params.term || '',

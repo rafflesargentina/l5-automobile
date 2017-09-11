@@ -1,5 +1,5 @@
-@php $store_route = (config('automobile.refactory_type_id_name') ?: 'automobiles').'.store'; @endphp
-@php $index_route = (config('automobile.refactory_type_id_name') ?: 'automobiles').'.index'; @endphp
+@php $store_route = (config('automobile.resource_name') ?: 'automobiles').'.store'; @endphp
+@php $index_route = (config('automobile.resource_name') ?: 'automobiles').'.index'; @endphp
 
 {!! Form::model($model_id = new \RafflesArgentina\Automobile\Models\Automobile, ['method' => 'POST', 'route' => $store_route, 'class' => 'Formulario-Horizontal']) !!}
   <section>
